@@ -2,5 +2,5 @@ import './jquery'
 import './popper'
 
 import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.mim.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
