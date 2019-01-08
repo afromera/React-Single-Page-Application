@@ -70,7 +70,7 @@ class Resumo extends Component {
                                     </div>
                                     <div className='card-body'>
                                         {this.state.faturamento.anterior.valor.toLocaleString("pt-BR", { style : "currency", currency : "BRL"}) }
-                                        <span className='badge badge-success ml-1'>
+                                        <span className={ 'badge ml-1 ' + (this.state.faturamento.anterior.comparativo > 0 ? 'badge-success' : 'badge-danger') }>
                                             { this.state.faturamento.anterior.comparativo } %
                                         </span>
                                     </div>
@@ -83,7 +83,7 @@ class Resumo extends Component {
                                     </div>
                                     <div className='card-body'>
                                         {this.state.faturamento.previsao.valor.toLocaleString("pt-BR", { style : "currency", currency : "BRL"}) }
-                                        <span className='badge badge-danger ml-1'>
+                                        <span className={ 'badge ml-1 ' + (this.state.faturamento.previsao.comparativo > 0 ? 'badge-success' : 'badge-danger')}>
                                             { this.state.faturamento.previsao.comparativo } %
                                         </span>
                                     </div>
