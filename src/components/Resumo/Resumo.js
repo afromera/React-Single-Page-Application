@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { URL_API } from '../../services/base'
 
 class Resumo extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             consultas: {
@@ -22,12 +23,12 @@ class Resumo extends Component {
         }
     }
 
-    componentDidMount(){
-        fetch('http://www.devup.com.br/php/api-dashboard/api/resumo')
-        .then(resultado => resultado.json().then(dados => this.setState(dados)))
+    componentDidMount() {
+        fetch(URL_API + '/resumo')
+            .then(resultado => resultado.json().then(dados => this.setState(dados)))
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <h2 className='mt-2'>Resumo</h2>
@@ -69,9 +70,9 @@ class Resumo extends Component {
                                         30 dias anteriores
                                     </div>
                                     <div className='card-body'>
-                                        {this.state.faturamento.anterior.valor.toLocaleString("pt-BR", { style : "currency", currency : "BRL"}) }
-                                        <span className={ 'badge ml-1 ' + (this.state.faturamento.anterior.comparativo > 0 ? 'badge-success' : 'badge-danger') }>
-                                            { this.state.faturamento.anterior.comparativo } %
+                                        {this.state.faturamento.anterior.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                                        <span className={'badge ml-1 ' + (this.state.faturamento.anterior.comparativo > 0 ? 'badge-success' : 'badge-danger')}>
+                                            {this.state.faturamento.anterior.comparativo} %
                                         </span>
                                     </div>
                                 </div>
@@ -82,9 +83,9 @@ class Resumo extends Component {
                                         Próximo 30 dias
                                     </div>
                                     <div className='card-body'>
-                                        {this.state.faturamento.previsao.valor.toLocaleString("pt-BR", { style : "currency", currency : "BRL"}) }
-                                        <span className={ 'badge ml-1 ' + (this.state.faturamento.previsao.comparativo > 0 ? 'badge-success' : 'badge-danger')}>
-                                            { this.state.faturamento.previsao.comparativo } %
+                                        {this.state.faturamento.previsao.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                                        <span className={'badge ml-1 ' + (this.state.faturamento.previsao.comparativo > 0 ? 'badge-success' : 'badge-danger')}>
+                                            {this.state.faturamento.previsao.comparativo} %
                                         </span>
                                     </div>
                                 </div>

@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { URL_API } from '../../services/base'
 
 class Consultas extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             realizadas: [],
@@ -10,13 +11,13 @@ class Consultas extends Component {
         };
     }
 
-    componentDidMount(){
-        fetch('http://www.devup.com.br/php/api-dashboard/api/consultas')
-        .then(resultado => resultado.json().then(dados => this.setState(dados)));
+    componentDidMount() {
+        fetch(URL_API + '/consultas')
+            .then(resultado => resultado.json().then(dados => this.setState(dados)));
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <h2 className='mt-2'>Consultas</h2>
 
@@ -36,8 +37,8 @@ class Consultas extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.realizadas.map((item,indice) => {
-                                            return(
+                                        this.state.realizadas.map((item, indice) => {
+                                            return (
                                                 <tr key={indice}>
                                                     <td> {item.especialidade} </td>
                                                     <td> {item.quantidade} </td>
@@ -64,8 +65,8 @@ class Consultas extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.marcadas.map((item,indice) => {
-                                            return(
+                                        this.state.marcadas.map((item, indice) => {
+                                            return (
                                                 <tr key={indice}>
                                                     <td>{item.especialidade}</td>
                                                     <td>{item.quantidade}</td>
