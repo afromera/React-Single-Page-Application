@@ -32,7 +32,7 @@ class Resumo extends Component {
             <div>
                 <h2 className='mt-2'>Resumo</h2>
 
-                <div className='row'>
+                <div className='row respiro-top-largo'>
                     <div className='col'>
                         <h3>Consultas</h3>
 
